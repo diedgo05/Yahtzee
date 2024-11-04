@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Juego de Dados</h2>
+    <div class="dados-container">
+      <div *ngFor="let dado of dados; let i = index" class="dado">
+        <input type="text" [value]="dado.valor !== null ? dado.valor : '-'" readonly />
+        <button (click)="Bloquear(i)">
+          {{ dado.bloqueado ? 'Desbloquear' : 'Bloquear' }}
+        </button>
+      </div>
+    </div>
+    
+    <button (click)="tirarDados()" [disabled]="contador >= maxContador">Tirar Dados</button>
+    <button (click)="reiniciarDados()">Reiniciar</button>
+
+    <app-objetivos-menores [objetivos]="objetivos"></app-objetivos-menores>
+  </div>
